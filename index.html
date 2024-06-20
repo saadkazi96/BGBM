@@ -18,12 +18,10 @@
     <section id="infinite" class="text-white tm-font-big tm-parallax">
       <!-- Navigation -->
       <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
-        <div class="container">   
-          <div class="tm-next">
-              <a href="#infinite" class="navbar-brand">
-                <img src="img/BGBMHeader3.png" alt="Brand Logo">
-              </a>
-          </div>             
+        <div class="navbar-brand">
+          <img src="img/BGBMHeader3.png" alt="Main Logo" />
+        </div>
+                   
             
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars navbar-toggler-icon"></i>
@@ -59,9 +57,66 @@
 
       <div class="tm-next tm-intro-next">
         <a href="#whatwedo" class="text-center tm-down-arrow-link">
-          <i class="fas fa-2x fa-arrow-down tm-down-arrow"></i>
+          <div id="scroll-down-animation"></div>
         </a>
-      </div>      
+      </div>
+      <style>
+        /* Ensure the page or body fills the viewport */
+        html, body {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          position: relative;
+        }
+      
+        .main-logo {
+          position: absolute;
+          top: 20px; /* Adjust as needed */
+          left: 20px; /* Adjust as needed */
+          z-index: 1; /* Ensure the logo is on top */
+        }
+      
+        .tm-next {
+          position: absolute;
+          bottom: 20px; /* Adjust as needed for spacing from bottom */
+          left: 65%;
+          transform: translateX(-50%);
+          text-align: center;
+        }
+      
+        #scroll-down-animation {
+          width: 70px; /* Set the width of the animation */
+          height: 70px; /* Set the height of the animation */
+        }
+      </style>
+      
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.9/lottie.min.js"></script>
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var animationPath = 'Scrolldown.json'; // Replace with your animation JSON path
+          var animationContainer = document.getElementById('scroll-down-animation');
+      
+          var anim = bodymovin.loadAnimation({
+            container: animationContainer,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: animationPath,
+            rendererSettings: {
+              preserveAspectRatio: 'xMidYMid meet', // Adjust according to your needs
+              scaleMode: 'noScale', // Adjust scaling behavior
+            },
+            assetsPath: 'assets/', // Specify the path to the assets folder if needed
+          });
+      
+          // Adjust size of the animation
+          anim.renderer.resize(50, 50); // Set width and height to 30px
+        });
+      </script>
+      
+    
     </section>
 
     <section id="whatwedo" class="tm-section-pad-top">
@@ -211,9 +266,9 @@
                   Need more information? We're here to assist you.
                 </p><br>
             </div>
-            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.10/lottie.min.js"></script>
             <div class="col-sm-12 col-md-6">
-              <form action="https://script.google.com/macros/s/AKfycbwi_M9Mcz1BZtrp7JXKOuraRaKIW7wNwVTY3794gQnFVlFW3Pwagye9ARSOhpXQEiJe/exec" method="get">
+              <form action="https://formspree.io/f/xzzpppbq" method="POST">
                 <input id="name" name="name" type="text" placeholder="Your Name" class="tm-input" required />
                 <input id="email" name="email" type="email" placeholder="Your Email" class="tm-input" required />
                 <textarea id="message" name="message" rows="8" placeholder="Message" class="tm-input" required></textarea>
@@ -221,44 +276,101 @@
               </form>
             </div>
             
+            
             <div class="col-sm-12 col-md-6">
-                
-                <div class="contact-item">
+              <style>
+                  .contact-item {
+                      display: flex;
+                      align-items: center; /* Align items vertically centered */
+                      margin-bottom: 50px; /* Add space between items */
+                  }
+                  .lottie-animation {
+                      width: 50px; /* Adjust width as needed */
+                      height: 50px; /* Adjust height as needed */
+                      margin-right: 10px; /* Space between logo and text */
+                  }
+              </style>
+          
+              <!-- Email Contact -->
+              <div class="contact-item">
+                  <div id="lottie-email" class="lottie-animation"></div>
                   <a rel="nofollow" href="mailto:info@bgbm.ae" class="item-link">
-                      <i class="far fa-2x fa-envelope mr-4"></i>
-                      <span class="mb-0">info@bgbm.ae</span>
-                  </a>              
-                </div>
-                
-                <div class="contact-item">
+                      <span class="mb-0">Info@bgbm.ae</span>
+                  </a>
+              </div>
+              <script>
+                  bodymovin.loadAnimation({
+                      container: document.getElementById('lottie-email'),
+                      renderer: 'svg',
+                      loop: true,
+                      autoplay: true,
+                      path: 'Emailwhite.json',
+                      rendererSettings: {
+                          preserveAspectRatio: 'xMidYMid meet',
+                      }
+                  });
+              </script>
+          
+              <!-- Location Contact -->
+              <div class="contact-item">
+                  <div id="lottie-location" class="lottie-animation"></div>
                   <a rel="nofollow" href="https://maps.app.goo.gl/Q25fHR1ofBkJcxB69?g_st=iw" class="item-link">
-                      <i class="fas fa-2x fa-map-marker-alt mr-4"></i>
                       <span class="mb-0">Our Location</span>
-                  </a>              
-                </div>
-
-                <div class="contact-item">
-                  <a rel="nofollow" href="tel:+971554457908" class="item-link"></a>
-                      <i class="fas fa-2x fa-phone-square mr-4"></i>
-                      <span class="mb-0">+971 2 667 1500</span>
-                  </a>              
-                </div>
-
-                <div class="contact-item">
-                  <a rel="nofollow" href="whatsapp://send?phone=+971554457908" class="item-link">
-                      <i class="fab fa-2x fa-whatsapp-square mr-4"></i>
-                      <span class="mb-0">+971 55 445 7908</span>
-                  </a>              
-                </div>
-                
-                <div class="contact-item">&nbsp;</div>
-            
-            </div>
-            
-            
-        </div><!-- row ending -->
-        
-      </div>
+                  </a>
+              </div>
+              <script>
+                  bodymovin.loadAnimation({
+                      container: document.getElementById('lottie-location'),
+                      renderer: 'svg',
+                      loop: true,
+                      autoplay: true,
+                      path: 'Googlemap.json',
+                      rendererSettings: {
+                          preserveAspectRatio: 'xMidYMid meet',
+                      }
+                  });
+              </script>
+          
+              <!-- Phone Contact -->
+              <div class="contact-item">
+                  <div id="lottie-phone" class="lottie-animation"></div>
+                  <span class="mb-0">+971 2 667 1500</span>
+              </div>
+              <script>
+                  bodymovin.loadAnimation({
+                      container: document.getElementById('lottie-phone'),
+                      renderer: 'svg',
+                      loop: true,
+                      autoplay: true,
+                      path: 'Callwhite.json',
+                      rendererSettings: {
+                          preserveAspectRatio: 'xMidYMid meet',
+                      }
+                  });
+              </script>
+          
+              <!-- WhatsApp Contact -->
+              <div class="contact-item">
+                  <div id="lottie-whatsapp" class="lottie-animation"></div>
+                  <a rel="nofollow" href="whatsapp://send?phone=+971554457908" class="item-link"></a>
+                  <span class="mb-0">+971 55 445 7908</span>
+              </div>
+              <script>
+                  bodymovin.loadAnimation({
+                      container: document.getElementById('lottie-whatsapp'),
+                      renderer: 'svg',
+                      loop: true,
+                      autoplay: true,
+                      path: 'Whatsapp.json',
+                      rendererSettings: {
+                          preserveAspectRatio: 'xMidYMid meet',
+                      }
+                  });
+              </script>
+          </div>
+          
+              
+              
 
       	<footer class="text-center small tm-footer">
           <p class="mb-0">
